@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Aide à domicile à La Ferté-Saint-Aubin | J'aide mon prochain</title>
+  <meta name="description" content="J'aide mon prochain propose des services à la personne à La Ferté-Saint-Aubin et alentours : ménage, repassage, courses, repas, aide administrative, accompagnement, garde d'enfants et soutien scolaire. Tarif simple : 25 €/h.">
+  <meta name="robots" content="index,follow">
+
+  <meta property="og:title" content="J'aide mon prochain | Aide à domicile à La Ferté-Saint-Aubin">
+  <meta property="og:description" content="Services à la personne de proximité à La Ferté-Saint-Aubin et alentours. Tarif simple : 25 €/h.">
+  <meta property="og:type" content="website">
+
+  <style>
+    :root{
+      --bg:#fffafd;
+      --surface:#ffffff;
+      --text:#2d2630;
+      --muted:#736b77;
+      --primary:#9d73d7;
+      --primary-dark:#7d56bb;
+      --secondary:#e9a5df;
+      --soft:#f6ecfb;
+      --soft-2:#fff2fb;
+      --line:#eadff0;
+      --shadow:0 16px 45px rgba(92,62,114,.12);
+      --radius:24px;
+      --max:1180px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Inter,Arial,Helvetica,sans-serif;
+      color:var(--text);
+      background:linear-gradient(180deg,#fffafd 0%,#fff 42%,#fffafd 100%);
+      line-height:1.6;
+    }
+
+    a{text-decoration:none;color:inherit}
+    img{max-width:100%;display:block}
+    button,input,textarea{font:inherit}
+
+    .container{
+      width:min(calc(100% - 32px),var(--max));
+      margin:auto;
+    }
+
+    .topbar{
+      background:#2e2434;
+      color:white;
+      text-align:center;
+      padding:8px 16px;
+      font-size:.92rem;
+    }
+
+    header{
+      position:sticky;
+      top:0;
+      z-index:30;
+      background:rgba(255,250,253,.95);
+      backdrop-filter:blur(14px);
+      border-bottom:1px solid rgba(234,223,240,.85);
+    }
+
+    .nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:24px;
+      min-height:88px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:14px;
+      min-width:220px;
+    }
+
+    .brand img{
+      width:86px;
+      height:70px;
+      object-fit:contain;
+    }
+
+    .brand-text strong{
+      display:block;
+      font-size:1.08rem;
+      line-height:1.15;
+    }
+
+    .brand-text span{
+      color:var(--muted);
+      font-size:.84rem;
+    }
+
+    nav{
+      display:flex;
+      align-items:center;
+      gap:24px;
+      font-size:.96rem;
+    }
+
+    nav a:hover{color:var(--primary-dark)}
+
+    .nav-cta{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:13px 18px;
+      border-radius:999px;
+      background:var(--primary);
+      color:white;
+      font-weight:800;
+      box-shadow:0 10px 24px rgba(157,115,215,.22);
+    }
+
+    .hero{
+      padding:76px 0 58px;
+    }
+
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.08fr .92fr;
+      gap:54px;
+      align-items:center;
+    }
+
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      border:1px solid var(--line);
+      background:var(--surface);
+      color:var(--primary-dark);
+      padding:8px 13px;
+      border-radius:999px;
+      font-weight:800;
+      font-size:.88rem;
+      box-shadow:0 8px 22px rgba(84,57,105,.06);
+    }
+
+    h1{
+      margin:20px 0 18px;
+      font-size:clamp(2.55rem,6vw,5rem);
+      line-height:.98;
+      letter-spacing:-.05em;
+      max-width:760px;
+    }
+
+    h1 span{
+      background:linear-gradient(90deg,var(--primary-dark),#c77ad6);
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
+    }
+
+    .hero p.lead{
+      font-size:1.18rem;
+      color:var(--muted);
+      max-width:690px;
+      margin:0 0 26px;
+    }
+
+    .hero-actions{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-bottom:24px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      min-height:52px;
+      padding:0 20px;
+      border-radius:14px;
+      border:1px solid transparent;
+      font-weight:800;
+      cursor:pointer;
+    }
+
+    .btn-primary{
+      background:var(--primary);
+      color:white;
+      box-shadow:0 12px 28px rgba(157,115,215,.22);
+    }
+
+    .btn-whatsapp{
+      background:#1f9d63;
+      color:white;
+    }
+
+    .btn-light{
+      background:white;
+      border-color:var(--line);
+    }
+
+    .trust-row{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      color:#5c5361;
+      font-weight:700;
+      font-size:.93rem;
+    }
+
+    .trust-row span{
+      background:white;
+      border:1px solid var(--line);
+      padding:8px 11px;
+      border-radius:999px;
+    }
+
+    .hero-card{
+      background:linear-gradient(150deg,#fff 0%,#f8effd 48%,#fff0fb 100%);
+      border:1px solid var(--line);
+      border-radius:36px;
+      padding:30px;
+      box-shadow:var(--shadow);
+      position:relative;
+      overflow:hidden;
+    }
+
+    .hero-card:before{
+      content:"";
+      position:absolute;
+      width:240px;
+      height:240px;
+      border-radius:50%;
+      background:rgba(157,115,215,.12);
+      right:-90px;
+      top:-70px;
+    }
+
+    .logo-large{
+      width:min(360px,88%);
+      margin:0 auto 10px;
+      position:relative;
+      z-index:1;
+    }
+
+    .price-card{
+      position:relative;
+      z-index:1;
+      background:white;
+      border:1px solid var(--line);
+      border-radius:22px;
+      padding:22px;
+      margin-top:10px;
+      text-align:center;
+    }
+
+    .price{
+      font-size:3.1rem;
+      line-height:1;
+      font-weight:900;
+      letter-spacing:-.05em;
+      color:var(--primary-dark);
+    }
+
+    .price small{
+      font-size:1rem;
+      color:var(--muted);
+      letter-spacing:0;
+    }
+
+    .tax{
+      margin-top:8px;
+      color:#574d5d;
+      font-weight:800;
+    }
+
+    section{
+      padding:76px 0;
+    }
+
+    .section-head{
+      max-width:760px;
+      margin-bottom:34px;
+    }
+
+    .section-head h2{
+      margin:8px 0 12px;
+      font-size:clamp(2rem,4vw,3.2rem);
+      line-height:1.08;
+      letter-spacing:-.035em;
+    }
+
+    .section-head p{
+      color:var(--muted);
+      margin:0;
+      font-size:1.05rem;
+    }
+
+    .services-grid{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:18px;
+    }
+
+    .service{
+      background:white;
+      border:1px solid var(--line);
+      border-radius:20px;
+      padding:24px;
+      box-shadow:0 10px 28px rgba(90,62,112,.06);
+    }
+
+    .service-icon{
+      font-size:1.8rem;
+      margin-bottom:10px;
+    }
+
+    .service h3{
+      margin:0 0 7px;
+      font-size:1.08rem;
+    }
+
+    .service p{
+      margin:0;
+      color:var(--muted);
+      font-size:.95rem;
+    }
+
+    .about{
+      background:var(--soft);
+    }
+
+    .about-grid{
+      display:grid;
+      grid-template-columns:.85fr 1.15fr;
+      gap:36px;
+      align-items:stretch;
+    }
+
+    .experience{
+      background:linear-gradient(145deg,var(--primary-dark),#c47bd5);
+      color:white;
+      border-radius:28px;
+      padding:34px;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      min-height:340px;
+      box-shadow:var(--shadow);
+    }
+
+    .experience .big{
+      font-size:5.3rem;
+      font-weight:900;
+      line-height:.9;
+      letter-spacing:-.07em;
+    }
+
+    .experience p{
+      font-size:1.1rem;
+      margin:18px 0 0;
+    }
+
+    .about-copy{
+      background:white;
+      border:1px solid var(--line);
+      border-radius:28px;
+      padding:34px;
+    }
+
+    .about-copy h2{
+      font-size:2.4rem;
+      line-height:1.08;
+      margin:0 0 16px;
+    }
+
+    .about-copy p{color:var(--muted)}
+
+    .highlight{
+      font-weight:800;
+      color:var(--text);
+    }
+
+    .sap-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:22px;
+      align-items:stretch;
+    }
+
+    .sap-card{
+      border:1px solid var(--line);
+      border-radius:26px;
+      background:white;
+      padding:32px;
+      box-shadow:0 10px 28px rgba(90,62,112,.05);
+    }
+
+    .sap-card.featured{
+      background:linear-gradient(145deg,#f6ecfb,#fff5fb);
+    }
+
+    .sap-card h3{font-size:1.45rem;margin-top:0}
+    .sap-card p{color:var(--muted)}
+
+    .zone{
+      background:#302637;
+      color:white;
+    }
+
+    .zone .section-head p{color:#d9cfde}
+
+    .towns{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+
+    .towns span{
+      border:1px solid rgba(255,255,255,.2);
+      background:rgba(255,255,255,.08);
+      padding:10px 14px;
+      border-radius:999px;
+      font-weight:800;
+    }
+
+    .contact-grid{
+      display:grid;
+      grid-template-columns:.9fr 1.1fr;
+      gap:30px;
+      align-items:start;
+    }
+
+    .contact-card{
+      background:linear-gradient(145deg,#faf0ff,#fff4fb);
+      border:1px solid var(--line);
+      border-radius:28px;
+      padding:32px;
+    }
+
+    .contact-card h2{
+      margin-top:0;
+      font-size:2.25rem;
+      line-height:1.08;
+    }
+
+    .phone-big{
+      display:block;
+      margin:20px 0 10px;
+      font-size:clamp(2rem,5vw,3.7rem);
+      font-weight:900;
+      color:var(--primary-dark);
+      letter-spacing:-.04em;
+    }
+
+    form{
+      background:white;
+      border:1px solid var(--line);
+      border-radius:28px;
+      padding:30px;
+      box-shadow:0 10px 28px rgba(90,62,112,.05);
+    }
+
+    label{
+      display:block;
+      font-weight:800;
+      margin-bottom:6px;
+    }
+
+    input, textarea{
+      width:100%;
+      border:1px solid #ded2e5;
+      background:#fff;
+      border-radius:13px;
+      padding:13px 14px;
+      outline:none;
+      margin-bottom:16px;
+    }
+
+    input:focus,textarea:focus{
+      border-color:var(--primary);
+      box-shadow:0 0 0 3px rgba(157,115,215,.12);
+    }
+
+    textarea{min-height:140px;resize:vertical}
+
+    .note{
+      font-size:.82rem;
+      color:var(--muted);
+      margin-top:16px;
+    }
+
+    footer{
+      background:#201a24;
+      color:#e9e1ed;
+      padding:44px 0 92px;
+    }
+
+    .footer-grid{
+      display:grid;
+      grid-template-columns:1.2fr .8fr .8fr;
+      gap:30px;
+    }
+
+    footer h4{
+      color:white;
+      margin-top:0;
+    }
+
+    footer a{
+      display:block;
+      color:#d6cbdc;
+      margin:7px 0;
+    }
+
+    .mobile-bar{
+      display:none;
+    }
+
+    @media (max-width:980px){
+      nav{display:none}
+      .hero-grid,
+      .about-grid,
+      .sap-grid,
+      .contact-grid{
+        grid-template-columns:1fr;
+      }
+      .services-grid{grid-template-columns:repeat(2,1fr)}
+      .hero{padding-top:44px}
+      .hero-card{max-width:640px}
+    }
+
+    @media (max-width:640px){
+      .container{width:min(calc(100% - 22px),var(--max))}
+      .topbar{font-size:.8rem}
+      .nav{min-height:72px}
+      .brand img{width:68px;height:54px}
+      .brand-text span{display:none}
+      .nav-cta{padding:10px 13px;font-size:.88rem}
+
+      h1{font-size:2.65rem}
+      .hero p.lead{font-size:1rem}
+      .services-grid{grid-template-columns:1fr}
+      section{padding:58px 0}
+      .hero-card{padding:22px}
+      .experience .big{font-size:4.2rem}
+      .footer-grid{grid-template-columns:1fr}
+
+      .mobile-bar{
+        display:grid;
+        position:fixed;
+        left:10px;
+        right:10px;
+        bottom:10px;
+        z-index:60;
+        grid-template-columns:1fr 1fr 1fr;
+        gap:6px;
+        padding:7px;
+        border-radius:18px;
+        background:rgba(32,26,36,.96);
+        box-shadow:0 16px 40px rgba(0,0,0,.24);
+      }
+
+      .mobile-bar a{
+        min-height:48px;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        border-radius:12px;
+        color:white;
+        font-weight:900;
+        font-size:.82rem;
+        padding:4px;
+        text-align:center;
+      }
+
+      .mobile-bar .call{background:var(--primary)}
+      .mobile-bar .wa{background:#1f9d63}
+      .mobile-bar .quote{background:#56495e}
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"ProfessionalService",
+    "name":"J'aide mon prochain",
+    "description":"Services à la personne à La Ferté-Saint-Aubin et alentours.",
+    "telephone":"+33620491445",
+    "email":"jaidemonprochain45@gmail.com",
+    "priceRange":"25 € / heure",
+    "areaServed":[
+      "La Ferté-Saint-Aubin",
+      "Ménestreau-en-Villette",
+      "Marcilly-en-Villette",
+      "Ardon"
+    ]
+  }
+  </script>
+</head>
+
+<body>
+
+  <div class="topbar">
+    Services à la personne à La Ferté-Saint-Aubin et alentours · 25 €/h
+  </div>
+
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#accueil" aria-label="Accueil J'aide mon prochain">
+        <img src="logo-jaide-mon-prochain.png" alt="Logo J'aide mon prochain">
+        <div class="brand-text">
+          <strong>J'aide mon prochain</strong>
+          <span>Services à la personne</span>
+        </div>
+      </a>
+
+      <nav aria-label="Navigation principale">
+        <a href="#services">Services</a>
+        <a href="#mathilde">À propos</a>
+        <a href="#tarifs">Tarifs</a>
+        <a href="#zone">Zone d'intervention</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <a class="nav-cta" href="tel:+33620491445">06 20 49 14 45</a>
+    </div>
+  </header>
+
+  <main id="accueil">
+
+    <section class="hero">
+      <div class="container hero-grid">
+
+        <div>
+          <div class="eyebrow">Aide de proximité · La Ferté-Saint-Aubin</div>
+
+          <h1>
+            Une aide à domicile <span>simple, humaine et de confiance.</span>
+          </h1>
+
+          <p class="lead">
+            Ménage, repassage, courses, préparation des repas, aide administrative,
+            accompagnement, garde d'enfants de plus de 3 ans et soutien scolaire.
+            Une seule interlocutrice pour vous aider au quotidien.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="tel:+33620491445">Appeler Mathilde</a>
+
+            <a class="btn btn-whatsapp"
+               href="https://wa.me/33620491445?text=Bonjour%20Mathilde%2C%20je%20souhaiterais%20conna%C3%AEtre%20vos%20disponibilit%C3%A9s%20pour%20une%20prestation%20%C3%A0%20domicile."
+               target="_blank" rel="noopener">
+              WhatsApp
+            </a>
+
+            <a class="btn btn-light" href="#contact">Demander un devis</a>
+          </div>
+
+          <div class="trust-row">
+            <span>12 ans d'expérience</span>
+            <span>25 € / heure</span>
+            <span>Services à la personne</span>
+          </div>
+        </div>
+
+        <aside class="hero-card" aria-label="Tarif J'aide mon prochain">
+          <img class="logo-large" src="logo-jaide-mon-prochain.png" alt="J'aide mon prochain">
+          <div class="price-card">
+            <div class="price">25 € <small>/ heure</small></div>
+            <div class="tax">Soit 12,50 € / h après crédit d'impôt de 50 %*</div>
+            <p class="note">
+              *Pour les prestations éligibles, selon les conditions et plafonds fiscaux en vigueur.
+            </p>
+          </div>
+        </aside>
+
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">Services</div>
+          <h2>Une aide adaptée à votre quotidien</h2>
+          <p>
+            Des prestations concrètes, réalisées à domicile ou dans le cadre de vos besoins du quotidien.
+          </p>
+        </div>
+
+        <div class="services-grid">
+          <article class="service">
+            <div class="service-icon">⌂</div>
+            <h3>Ménage</h3>
+            <p>Entretien courant du logement, sols, poussière, cuisine et sanitaires.</p>
+          </article>
+
+          <article class="service">
+            <div class="service-icon">✦</div>
+            <h3>Repassage</h3>
+            <p>Repassage à domicile et aide à l'entretien courant du linge.</p>
+          </article>
+
+          <article class="service">
+            <div class="service-icon">🛒</div>
+            <h3>Courses</h3>
+            <p>Aide pour les courses et les besoins courants du quotidien.</p>
+          </article>
+
+          <article class="service">
+            <div class="service-icon">🍽</div>
+            <h3>Préparation des repas</h3>
+            <p>Préparation de repas simples au domicile selon vos habitudes.</p>
+          </article>
+
+          <article class="service">
+            <div class="service-icon">✉</div>
+            <h3>Aide administrative</h3>
+            <p>Classement, courriers et accompagnement dans les démarches administratives courantes.</p>
+          </article>
+
+          <article class="service">
+            <div class="service-icon">♡</div>
+            <h3>Accompagnement</h3>
+            <p>Présence, promenade, courses et accompagnement dans les déplacements du quotidien.</p>
+          </article>
+
+          <article class="service">
+            <div class="service-icon">★</div>
+            <h3>Garde d'enfants +3 ans</h3>
+            <p>Garde à domicile et accompagnement des enfants de plus de 3 ans.</p>
+          </article>
+
+          <article class="service">
+            <div class="service-icon">✎</div>
+            <h3>Soutien scolaire</h3>
+            <p>Aide aux devoirs et soutien scolaire au domicile de la famille.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="about" id="mathilde">
+      <div class="container about-grid">
+
+        <div class="experience">
+          <div class="big">12 ans</div>
+          <p>
+            d'expérience dans l'aide et les services à la personne,
+            dont <strong>8 années en EHPAD</strong> et
+            <strong>4 années en activité indépendante</strong>.
+          </p>
+        </div>
+
+        <div class="about-copy">
+          <div class="eyebrow">Mathilde</div>
+          <h2>Une personne de confiance, pas une plateforme impersonnelle</h2>
+
+          <p>
+            Avec <span class="highlight">J'aide mon prochain</span>, vous savez qui intervient chez vous.
+            Mathilde accompagne ses clients avec simplicité, ponctualité et attention,
+            en adaptant chaque prestation aux besoins réels de la personne ou de la famille.
+          </p>
+
+          <p>
+            L'objectif est simple : vous faire gagner du temps, vous soulager dans le quotidien
+            et vous proposer une aide régulière ou ponctuelle, sans multiplier les interlocuteurs.
+          </p>
+
+          <a class="btn btn-primary" href="#contact">Contacter Mathilde</a>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="tarifs">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">Tarif simple</div>
+          <h2>25 € de l'heure, quelle que soit la prestation</h2>
+          <p>
+            Pas de grille compliquée : un tarif horaire clair pour les prestations proposées.
+          </p>
+        </div>
+
+        <div class="sap-grid">
+          <article class="sap-card featured">
+            <h3>25 € / heure</h3>
+            <p>
+              Ménage, repassage, aide aux courses, repas, administratif,
+              accompagnement ou prestations familiales : le tarif horaire est simple et lisible.
+            </p>
+          </article>
+
+          <article class="sap-card">
+            <h3>Crédit d'impôt de 50 %*</h3>
+            <p>
+              Pour une prestation éligible aux services à la personne, 25 € facturés
+              peuvent représenter un coût de <strong>12,50 € après crédit d'impôt</strong>,
+              sous réserve des conditions et plafonds fiscaux applicables.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="zone" id="zone">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">Proximité</div>
+          <h2>La Ferté-Saint-Aubin et alentours</h2>
+          <p>
+            Intervention principalement dans un rayon d'environ 5 à 10 km,
+            selon le type et la durée de la prestation.
+          </p>
+        </div>
+
+        <div class="towns">
+          <span>La Ferté-Saint-Aubin</span>
+          <span>Ménestreau-en-Villette</span>
+          <span>Marcilly-en-Villette</span>
+          <span>Ardon</span>
+          <span>Communes proches</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container contact-grid">
+
+        <div class="contact-card">
+          <div class="eyebrow">Contact</div>
+          <h2>Besoin d'aide à domicile ?</h2>
+          <p>
+            Appelez directement Mathilde ou envoyez-lui un message WhatsApp.
+            Vous pouvez également utiliser le formulaire.
+          </p>
+
+          <a class="phone-big" href="tel:+33620491445">06 20 49 14 45</a>
+
+          <p>
+            <strong>Email :</strong><br>
+            <a href="mailto:jaidemonprochain45@gmail.com">jaidemonprochain45@gmail.com</a>
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="tel:+33620491445">Appeler</a>
+            <a class="btn btn-whatsapp"
+               href="https://wa.me/33620491445?text=Bonjour%20Mathilde%2C%20je%20souhaiterais%20avoir%20des%20informations%20sur%20vos%20services."
+               target="_blank" rel="noopener">
+              WhatsApp
+            </a>
+          </div>
+        </div>
+
+        <form action="#" method="post">
+          <h3>Demander un devis</h3>
+
+          <label for="name">Nom</label>
+          <input id="name" name="name" type="text" autocomplete="name" required>
+
+          <label for="phone">Téléphone</label>
+          <input id="phone" name="phone" type="tel" autocomplete="tel" required>
+
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" autocomplete="email">
+
+          <label for="message">Votre besoin</label>
+          <textarea id="message" name="message" placeholder="Ex. : 2 heures de ménage chaque semaine à La Ferté-Saint-Aubin..." required></textarea>
+
+          <button class="btn btn-primary" type="submit">Envoyer ma demande</button>
+
+          <p class="note">
+            Formulaire à connecter à votre solution d'envoi avant mise en production.
+          </p>
+        </form>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <h4>J'aide mon prochain</h4>
+        <p>
+          Services à la personne à La Ferté-Saint-Aubin et alentours.<br>
+          Entreprise individuelle · SIRET 918 652 785 00018
+        </p>
+      </div>
+
+      <div>
+        <h4>Navigation</h4>
+        <a href="#services">Services</a>
+        <a href="#tarifs">Tarifs</a>
+        <a href="#zone">Zone d'intervention</a>
+        <a href="#contact">Contact</a>
+      </div>
+
+      <div>
+        <h4>Informations</h4>
+        <a href="mentions-legales.html">Mentions légales</a>
+        <a href="politique-confidentialite.html">Confidentialité</a>
+        <a href="services-personne-credit-impot.html">Services à la personne</a>
+      </div>
+    </div>
+  </footer>
+
+  <div class="mobile-bar" aria-label="Contact rapide">
+    <a class="call" href="tel:+33620491445">Appeler</a>
+    <a class="wa"
+       href="https://wa.me/33620491445?text=Bonjour%20Mathilde%2C%20je%20souhaiterais%20avoir%20des%20informations%20sur%20vos%20services."
+       target="_blank" rel="noopener">
+      WhatsApp
+    </a>
+    <a class="quote" href="#contact">Devis</a>
+  </div>
+
+</body>
+</html>
