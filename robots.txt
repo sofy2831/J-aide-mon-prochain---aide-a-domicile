@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://jaidemonprochain.cleanup-manager.fr/sitemap.xml
